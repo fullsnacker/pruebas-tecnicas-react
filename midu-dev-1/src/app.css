@@ -1,0 +1,7 @@
+.cat-grid {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+	justify-self: center;
+	margin: 10%;
+}
