@@ -19,6 +19,9 @@ function App() {
   }
 
   function handleAdd(event: React.ChangeEvent<Form>) {
+    event.preventDefault();
+    setItems([...items, {id: +new Date(), text: event.target.text.value, completed: false}]);
+    event.target.text.value = "";
     // Should implement
   }
 
@@ -29,6 +32,8 @@ function App() {
   useEffect(() => {
     api.list().then(setItems);
   }, []);
+
+  if (!items.length) return "Loading";
 
   return (
     <main className={styles.main}>
