@@ -15,7 +15,6 @@ function App() {
 
   function handleToggle(id: Item["id"]) {
     setItems(items.map((item) => (item.id === id ? {...item, completed: !item.completed} : item)));
-    // Should implement
   }
 
   function handleAdd(event: React.ChangeEvent<Form>) {
@@ -23,11 +22,13 @@ function App() {
 
     if (event.target.text.value.length === 0) return;
 
-    setItems(
+    const inputValue = event.target.text.value;
+
+    setItems((items) =>
       items.concat({
         id: +new Date(),
         completed: false,
-        text: event.target.text.value,
+        text: inputValue,
       }),
     );
 

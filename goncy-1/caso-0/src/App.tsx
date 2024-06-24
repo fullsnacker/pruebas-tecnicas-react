@@ -1,6 +1,6 @@
-import type { Item } from "./types";
+import type {Item} from "./types";
 
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 
 import styles from "./App.module.scss";
 import api from "./api";
@@ -12,7 +12,7 @@ function App() {
     api.list().then(setItems);
   }, []);
 
-  const onHandleRemove = (id: number) => {
+  const handleDelete = (id: number) => {
     const newItems = items.filter((item) => item.id !== id);
 
     setItems(newItems);
@@ -28,8 +28,7 @@ function App() {
       <ul>
         {items.map((item) => (
           <li key={item.id} className={item.completed ? styles.completed : ""}>
-            {item.text}
-            <button onClick={() => onHandleRemove(item.id)}>[X]</button>
+            {item.text} <button onClick={() => handleDelete(item.id)}>[X]</button>
           </li>
         ))}
       </ul>

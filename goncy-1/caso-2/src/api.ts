@@ -2,7 +2,7 @@ import {Item} from "./types";
 
 export default {
   list: (): Promise<Item[]> =>
-    new Promise((res, rej) => {
+    new Promise((res) => {
       setTimeout(() => {
         res([
           {
@@ -21,6 +21,6 @@ export default {
             completed: false,
           },
         ]);
-      }, 1000);
+      }, 5000);
     }),
 };
